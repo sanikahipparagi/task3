@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment History</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   
+</head>
+<body>
+    <div class="container">
+        <h1>Payment History</h1>
+        <div class="search-container">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" placeholder="Search by Transaction ID" [(ngModel)]="searchTerm" />
+        </div>
+        <table class="payment-history-table">
+            <thead>
+                <tr>
+                    <th>Bill ID</th>
+                    <th>Transaction ID</th>
+                    <th>Payment Method</th>
+                    <th>Payment Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of filteredTransactions()">
+                    <td>{{ transaction.billId }}</td>
+                    <td>{{ transaction.transactionId }}</td>
+                    <td>{{ transaction.paymentMethod }}</td>
+                    <td>
+                        <span class="status" [ngClass]="{ 'paid': transaction.paymentStatus === 'Paid', 'unpaid': transaction.paymentStatus === 'Unpaid' }">
+                            {{ transaction.paymentStatus }}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button (click)="previousPage()" [disabled]="currentPage === 1">&lt;&lt;</button>
+            <span *ngFor="let page of pageNumbers()" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</span>
+            <button (click)="nextPage()" [disabled]="currentPage === totalPages()">&gt;&gt;</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Bills</h1>
+        <div class="search-container">
+        <i class="fa fa-search"></i>
+        <input type="text" placeholder="Search by Bill ID..." [(ngModel)]="searchTerm" />
+        </div>
+      
+        <table class="bills-table">
+          <thead>
+            <tr>
+              <th>Bill ID</th>
+              <th>Month</th>
+              <th>Due Date</th>
+              <th>Amount</th>
+              <th>Unit Consumption</th>
+              <th>Payment Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let bill of filteredBills()">
+              <td>{{ bill.billId }}</td>
+              <td>{{ bill.month }}</td>
+              <td>{{ bill.dueDate }}</td>
+              <td>{{ bill.amount | currency }}</td>
+              <td>{{ bill.unitConsumption }}</td>
+              <td>
+                <button class="status-button paid" [disabled]="bill.paymentStatus === 'Paid'">Paid</button>
+                <button class="status-button unpaid" *ngIf="bill.paymentStatus === 'Unpaid'" routerLink="/paymentMethod">Unpaid</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <div class="pagination">
+          <button (click)="previousPage()" [disabled]="currentPage === 1"><<</button>
+          <span *ngFor="let page of pageNumbers()" 
+                (click)="goToPage(page)" 
+                [ngClass]="{'active': page === currentPage}">
+            {{ page }}
+          </span>
+          <button (click)="nextPage()" [disabled]="currentPage === totalPages">>></button>
+        </div>
+      </div>      
+</body>
+</html>

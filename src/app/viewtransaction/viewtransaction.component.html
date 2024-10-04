@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Transaction History</h1>
+    
+        <div class="filter-container">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" placeholder="Search by Transaction ID..." class="search-bar" />
+            <select class="status-filter">
+                <option value="">All Statuses</option>
+                <option value="paid">Paid</option>
+                <option value="unpaid">Unpaid</option>
+                <option value="unpaid">Cash</option>
+                <option value="unpaid">Credit Card</option>
+                <option value="unpaid">Debit Card</option>
+                <option value="unpaid">Wallet</option>
+            </select>
+        </div>
+    
+        <table class="transaction-table">
+            <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Bill ID</th>
+                    <th>Payment Status</th>
+                    <th>Payment Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of paginatedTransactions">
+                    <td>{{ transaction.transactionId }}</td>
+                    <td>{{ transaction.billId }}</td>
+                    <td>
+                        <span class="status" [ngClass]="{ paid: transaction.status === 'Paid', unpaid: transaction.status === 'Unpaid' }">
+                            {{ transaction.status }}
+                        </span>
+                    </td>
+                    <td>{{ transaction.method }}</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <!-- Pagination Controls -->
+        <div class="pagination-container">
+            <button class="pagination-btn" (click)="prevPage()">&lt;&lt;</button>
+            <span class="pagination-numbers">
+                <span class="circle" [ngStyle]="{ left: (currentPage - 1) * 60 + 'px' }"></span>
+                <span class="page-number" *ngFor="let page of [].constructor(totalPages); let i = index" 
+                      [ngClass]="{ active: currentPage === (i + 1) }" 
+                      (click)="selectPage(i + 1)">
+                    {{ i + 1 }}
+                </span>
+            </span>
+            <button class="pagination-btn" (click)="nextPage()">&gt;&gt;</button>
+        </div>
+    </div>
+     
+</body>
+</html>

@@ -1,0 +1,245 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    /* background-color: #f4f4f9; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 200px;
+}
+
+h1 {
+    text-align: center;
+    color: #991b9d;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Filter and Search Bar */
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #e4e4ee;
+    color:black;
+    margin-right: 160px;
+}
+
+.status-filter {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 5px;
+    background-color: #e4e4ee;
+    color: black;
+}
+
+/* Table Styling */
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transaction-table th, 
+.transaction-table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    color: black;
+}
+
+.transaction-table th {
+    background-color: #5753c9;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.transaction-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.transaction-table tr:hover {
+    background-color: #ddd;
+    
+}
+
+/* Status Styling */
+.status {
+    /* padding: 5px 10px; */
+    /* border-radius: 5px; */
+    font-weight: bold;
+}
+
+.paid {
+    /* background-color: #4CAF50; */
+    color: #4CAF50;
+}
+
+.unpaid {
+    
+    color: #f44336;
+}
+
+/* Pagination Styling */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: black;
+}
+
+.pagination-btn {
+    padding: 10px 15px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5753c9;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination-btn:hover {
+    background-color: #5753c9;
+}
+
+/* Pagination Number Styling */
+.pagination-numbers {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.page-number {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.page-number.active {
+    background-color: #5753c9;
+    color: white;
+}
+
+.page-number:hover {
+    background-color: #ddd;
+}
+
+/* .circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px; 
+    height: 40px;
+    border-radius: 20px;
+    background-color: #201b9d;
+    transition: left 0.3s;
+} */
+
+/* Responsive Design */
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-bar, .status-filter {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .transaction-table {
+        display: block; /* Keep table scrollable */
+        overflow-x: auto; /* Horizontal scroll for smaller screens */
+        width: 100%; /* Ensure table takes full width */
+    }
+
+    .transaction-table th, 
+    .transaction-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+        white-space: nowrap; /* Prevent line breaks */
+    }
+
+    .pagination-btn, .page-number {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .pagination-container {
+        flex-direction: row; /* Ensure pagination stays in one row */
+        flex-wrap: wrap; /* Allow wrapping if necessary */
+    }
+
+    .pagination-btn,
+    .page-number {
+        margin: 0 5px; /* Maintain consistent spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .pagination-container {
+        flex-direction: column;
+    }
+
+    .pagination-btn, .page-number {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .pagination-container {
+        flex-direction: row; /* Ensure pagination stays in one row */
+        overflow-x: auto; /* Allow horizontal scrolling if necessary */
+        white-space: nowrap; /* Prevent line breaks */
+    }
+
+    .pagination-btn,
+    .page-number {
+        padding: 8px 12px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Smaller font size for better fit */
+    }
+}

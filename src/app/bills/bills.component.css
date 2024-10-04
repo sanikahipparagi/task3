@@ -1,0 +1,176 @@
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+h1 {
+    text-align: center;
+    color: #991b9d;
+    margin-bottom: 30px;
+}
+
+.search-container {
+    margin-bottom: 20px;
+    text-align: left;
+    position: relative;
+}
+
+.search-container i {
+    position: absolute; /* Position the icon inside the input */
+    left: 10px; /* Space from the left */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust vertically */
+    color: #aaa; /* Icon color */
+}
+
+.search-container input {
+    padding: 10px;
+    width: 100%;  /* Full width for all screen sizes */
+    max-width: 500px; /* Limit max width */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e4e4ee;
+}
+
+.bills-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
+    display: table; /* Keep it as a table layout */
+}
+
+.bills-table th, .bills-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    color: black;
+    font-size: 14px; /* Slightly smaller text for better fit */
+}
+
+.bills-table th {
+    background-color: #f2f2f2;
+    color: rgb(45, 0, 128);
+}
+
+.status-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; 
+}
+
+.paid {
+    background-color: rgb(20, 182, 20);
+}
+
+.paid:hover {
+    background-color: darkgreen; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0px 4px 8px rgba(0, 128, 0, 0.4); /* Add shadow effect on hover */
+}
+
+.unpaid {
+    background-color: red;
+}
+
+.unpaid:hover {
+    background-color: darkred; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0px 4px 8px rgba(255, 0, 0, 0.4); /* Add shadow effect on hover */
+}
+
+.paid:disabled {
+    background-color: gray; /* Darker shade when disabled */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    color: black;
+}
+
+.pagination button,
+.pagination span {
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #2196F3;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.pagination button:hover,
+.pagination span:hover {
+    background-color: #0b7dda; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.pagination span.active {
+    background-color: #0b7dda;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .search-container input {
+        width: 100%;  /* Full width input on smaller screens */
+        max-width: none;
+    }
+
+    .bills-table th, .bills-table td {
+        padding: 8px;
+        font-size: 0.9rem;  /* Slightly reduce text size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .search-container input {
+        width: 100%;  /* Ensure input takes full width on small devices */
+    }
+
+    .bills-table {
+        display: block;  /* Make the table scrollable on very small screens */
+        overflow-x: auto; /* Allow horizontal scroll for the table */
+    }
+
+    .bills-table th, .bills-table td {
+        display: table-cell; /* Keep the table format */
+        padding: 5px;
+        font-size: 0.8rem;  /* Further reduce text size for very small screens */
+        white-space: nowrap; /* Prevent wrapping of text in cells */
+    }
+
+    .pagination button,
+    .pagination span {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+
+    .status-button {
+        padding: 5px 8px;  /* Reduce button size on smaller screens */
+    }
+}

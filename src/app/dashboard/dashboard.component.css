@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column; /* Stack the navbar and container vertically */
+  min-height: 100vh; /* Ensure the body takes up the full height */
+  /* background-color: #f4f4f9; Light background for contrast */
+}
+
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  margin: 20px auto; /* Center container and add margin */
+}
+
+/* Header Styling */
+h1 {
+  text-align: center;
+  color: #201b9d;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Main Content Styling */
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Description Styling */
+.description {
+  flex: 1;
+  margin-right: 20px;
+  color: #3c0c47;
+}
+
+.description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Image Styling */
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Transaction Section */
+.transaction-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.transaction-image {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.transaction-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.transaction-description {
+  flex: 1;
+}
+
+.transaction-description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #3c0c47;
+}
+
+/* Bill Section */
+.bill-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  flex-direction: row; /* Image on the right side */
+}
+
+.bill-image {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.bill-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.bill-description {
+  flex: 1;
+}
+
+.bill-description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #3c0c47;
+}
+
+/* Button Styling */
+.custom-button {
+  padding: 15px 25px;
+  font-size: 1rem;
+  color: white;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.custom-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.custom-button:active {
+  transform: scale(0.95);
+}
+
+/* Specific Styling for Different Buttons */
+.transactions {
+  background-color: #2196F3; /* Blue */
+}
+
+.transactions:hover {
+  background-color: #0b7dda;
+}
+
+.bills {
+  background-color: #FF9800; /* Orange */
+}
+
+.bills:hover {
+  background-color: #e68900;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content,
+  .transaction-section,
+  .bill-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .description {
+    margin: 0 0 20px 0;
+  }
+
+  .transaction-section,
+  .bill-section {
+    margin-top: 30px;
+  }
+}
